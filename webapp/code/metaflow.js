@@ -11,19 +11,19 @@ sap.ui.define([
 			var oView = oController.getView();
 			var oUIControlModel = oView.getModel( "uiControlModel" );
 			
-			//var sServiceURL = oUIControlModel.getProperty("/metaflowURL") + "import?customerId=" + oUIControlModel.getProperty("/customerId");
-			var sServiceURL = oUIControlModel.getProperty("/metaflowURL") + "import";
+			var sServiceURL = oUIControlModel.getProperty("/metaflowURL") + "import?customerId=" + oUIControlModel.getProperty("/customerId");
 
 			jQuery.ajax({
 				type: "POST",
 				url: sServiceURL,
-				data: sBPMN,
+				data: "<test></test>",			//sBPMN,
 				contentType: "text/xml",
 				dataType: "text",
 				success: function(oResponse) {
 					var sResponseJSON = JSON.stringify( oResponse );
 					if ( that.isJson( sResponseJSON ) ) {
 						// ToDo....
+						var i = 0;
 					} else {
 						Dialogs.showMessageDialog( oController, "E", oResponse.toString() );
 					}				

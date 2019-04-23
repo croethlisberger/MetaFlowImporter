@@ -2,11 +2,11 @@
   "welcomeFile": "/webapp/index.html",
   "routes": [
   	{
-  		"path": "/destinations/Metaflow",
+  		"path": "/destinations/MetaFlow",
   		"target": {
   			"type": "destination",
-  			"name": "Metaflow",
-  			"entryPath": "/Metaflow"
+  			"name": "MetaFlow",
+  			"entryPath": "/MetaFlow"
   		}
   	},
   	{
