@@ -16,7 +16,7 @@ sap.ui.define([
 			jQuery.ajax({
 				type: "POST",
 				url: sServiceURL,
-				data: "<test></test>",			//sBPMN,
+				data: sBPMN,
 				contentType: "text/xml",
 				dataType: "text",
 				success: function(oResponse) {
