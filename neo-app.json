@@ -1,6 +1,29 @@
 {
   "welcomeFile": "/webapp/index.html",
   "routes": [
+  	{
+  		"path": "/destinations/Metaflow",
+  		"target": {
+  			"type": "destination",
+  			"name": "Metaflow",
+  			"entryPath": "/Metaflow"
+  		}
+  	},
+  	{
+  		"path": "/destinations/TextRepository",
+  		"target": {
+  			"type": "destination",
+  			"name": "TextRepository",
+  			"entryPath": "/TextRepository"
+  		}
+  	},
+	{
+		"path": "/services/userapi", 
+		"target": {
+			"type": "service",
+			"name": "userapi"
+		}
+	},
     {
       "path": "/resources",
       "target": {

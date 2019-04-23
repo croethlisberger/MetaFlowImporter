@@ -1,10 +1,30 @@
 <mvc:View controllerName="MetaflowImporter.MetaflowImporter.controller.MainView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-	xmlns="sap.m">
+	xmlns="sap.m" xmlns:u="sap.ui.unified">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content></content>
+				<Page id="page">
+					<customHeader>
+						<Bar id="headerBar" design="Header">
+							<contentLeft>
+								<Button id="backButton" tooltip="Back" press="onNavigateBack" icon="sap-icon://nav-back" visible="false" />
+							</contentLeft>
+							<contentMiddle>
+								<Title id="pageTitle" text="{textModel>/pageTitle}" />
+							</contentMiddle>
+							<contentRight>
+								<Button id="resizeButton" tooltip="{textModel>/resizeButton}" press="onResize" icon="sap-icon://resize" />
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<Panel id="importPanel" headerText="{textModel>/importPanelTitle}">
+							<content>
+								<u:FileUploader id="importUploader" icon="sap-icon://upload" value="{uiControlModel>/uploadFilename}"
+									tooltip="{textModel>/importUploader}" change="onImport" fileType="bpmn" width="50%" />
+							</content>
+						</Panel>
+					</content>
 				</Page>
 			</pages>
 		</App>
