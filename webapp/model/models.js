@@ -31,10 +31,23 @@ sap.ui.define([
 			// These default texts will be used if no backend text repository can be found
 			var oTextModel = new JSONModel({
 				pageTitle: "Metaflow Importer",
+				cancelButton: "Cancel",
 				resizeButton: "Toggle full screen",
+				saveButton: "Save this process",
 				importPanelTitle: "Step 1: Import a BPMN file",
 				importUploader: "Import BPMN file",
-				cancel: "Cancel"
+				selectPanelTitle: "Step 2: Select a diagram and a process",
+				processPanelTitle: "Step 3: Analyze selected process",
+				elementStatus: "Status",
+				elementType: "Type",
+				elementName: "Name",
+				elementValue: "Value",
+				elementMessage: "Message",
+				missingObject: "(none)",
+				messageUnableToParse: "Unable to parse BPMN file",
+				messageMultipleStartEvents: "Multiple start events",
+				messageInvalidElement: "InvalidElement",
+				messageNoActorForUserTask: "No actor for user task"
 			});
 			oTextModel.setDefaultBindingMode("OneWay");
 			return oTextModel;

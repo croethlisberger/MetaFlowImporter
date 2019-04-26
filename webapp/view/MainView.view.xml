@@ -1,5 +1,5 @@
 <mvc:View controllerName="MetaflowImporter.MetaflowImporter.controller.MainView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-	xmlns="sap.m" xmlns:u="sap.ui.unified">
+	xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
@@ -12,19 +12,71 @@
 							<contentMiddle>
 								<Title id="pageTitle" text="{textModel>/pageTitle}" />
 							</contentMiddle>
-							<contentRight>
-								<Button id="resizeButton" tooltip="{textModel>/resizeButton}" press="onResize" icon="sap-icon://resize" />
-							</contentRight>
 						</Bar>
 					</customHeader>
 					<content>
 						<Panel id="importPanel" headerText="{textModel>/importPanelTitle}">
 							<content>
 								<u:FileUploader id="importUploader" icon="sap-icon://upload" value="{uiControlModel>/uploadFilename}"
-									tooltip="{textModel>/importUploader}" change="onImport" fileType="bpmn" width="50%" />
+									tooltip="{textModel>/importUploader}" change="onImport" fileType="bpmn" width="500px" />
+							</content>
+						</Panel>
+						<Panel id="selectPanel" headerText="{textModel>/selectPanelTitle}" visible="false">
+							<content>
+								<Select id="selectDiagram" items="{diagramModel>/}" selectedKey="{diagramModel>/0/id}" change="onChangeDiagram">
+									<core:Item key="{diagramModel>index}" text="{diagramModel>name}" />
+								</Select>
+								<Select id="selectProcess" items="{processModel>/}" selectedKey="{processModel>/0/id}" change="onChangeProcess"
+									class="sapUiTinyMarginBegin">
+									<core:Item key="{processModel>processRef}" text="{processModel>name}" />
+								</Select>
+							</content>
+						</Panel>
+						<Panel id="processPanel" headerText="{textModel>/processPanelTitle}" visible="false">
+							<content>
+								<Table id="elementsTable" items="{elementModel>/}">
+									<columns>
+										<Column>
+											<Text text="{textModel>/elementStatus}" />
+										</Column>
+										<Column>
+											<Text text="{textModel>/elementType}" />
+										</Column>
+										<Column>
+											<Text text="{textModel>/elementName}" />
+										</Column>
+										<Column>
+											<Text text="{textModel>/elementValue}" />
+										</Column>
+										<Column>
+											<Text text="{textModel>/elementMessage}" />
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<core:Icon src="{elementModel>icon}" color="{elementModel>color}" />
+												<Text text="{elementModel>type}" />
+												<Text text="{elementModel>name}" />
+												<Text text="{elementModel>value}" />
+												<Text text="{elementModel>message}" />
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
 							</content>
 						</Panel>
 					</content>
+					<footer>
+						<Bar>
+							<contentLeft>
+								<Image id="customerLogo" src="./mime/{uiControlModel>/customerId}_logo.png" tooltip="{textModel>/customerLogo}" height="45px" />
+							</contentLeft>
+							<contentRight>
+								<Button id="saveButton" icon="sap-icon://save" text="{textModel>/saveButton}" type="Emphasized" visible="false" />
+							</contentRight>
+						</Bar>
+					</footer>
 				</Page>
 			</pages>
 		</App>
