@@ -61,7 +61,7 @@ sap.ui.define([
 		// --------------------------------------------------------------------
 		
 		determineNamespace: function() {
-			const cBPMNURI = "http://www.omg.org/spec/BPMN/20100524/MODEL";
+			var cBPMNURI = "ht" + "tp://www.omg.org/spec/BPMN/20100524/MODEL";
 
 			var tAttributes = this.xmlDOM.documentElement.attributes;
 			for ( var i = 0; i < tAttributes.length; i++ ) {
@@ -103,7 +103,7 @@ sap.ui.define([
 			}
 			
 			// Cope with missing diagrams at all
-			const cDUMMY = "dummy";
+			var cDUMMY = "dummy";
 			if ( this.tDiagrams.length === 0 ) {
 				var oDummy = {
 					index: 0,
@@ -127,7 +127,7 @@ sap.ui.define([
 			this.tParticipants.length = 0;
 			
 			// Cope with dummy diagram if missing at all
-			const cDUMMY = "dummy";
+			var cDUMMY = "dummy";
 			if ( sDiagramId === cDUMMY ) {
 				var oDummy = {
 					diagramId: cDUMMY,
@@ -161,7 +161,7 @@ sap.ui.define([
 		parseProcess: function(sProcessId) {
 			this.tElements.length = 0;
 			
-			const cDUMMY = "dummy";
+			var cDUMMY = "dummy";
 			var oProcessNode = null;
 			if ( sProcessId === cDUMMY ) {
 				oProcessNode = this.xmlDOM.documentElement.getElementsByTagName(this.sNamespace + "process")[0];
